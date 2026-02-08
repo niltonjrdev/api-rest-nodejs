@@ -12,6 +12,7 @@ export const config: Knex.Config = {
   migrations: {
     extension: 'ts',
     directory: './db/migrations',
+    tableName: 'knex_migrations_api_rest'
   },
 }
 
