@@ -1,0 +1,113 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "API REST - Transactions",
+  "collectionId": "api-rest-transactions",
+  "dateExported": "2026-02-08T19:30:00.000Z",
+  "version": "1.2",
+  "folders": [
+    {
+      "id": "folder_transactions",
+      "name": "Transactions",
+      "containerId": "",
+      "created": "2026-02-08T19:30:00.000Z",
+      "sortNum": 10000
+    }
+  ],
+  "requests": [
+    {
+      "id": "req_create_credit",
+      "name": "Criar Transação (Crédito)",
+      "url": "{{base_url}}/transactions",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-02-08T19:30:00.000Z",
+      "modified": "2026-02-08T19:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Salário\",\n  \"amount\": 5000,\n  \"type\": \"credit\"\n}",
+        "form": []
+      },
+      "tests": [],
+      "containerId": "folder_transactions",
+      "colId": "api-rest-transactions"
+    },
+    {
+      "id": "req_create_debit",
+      "name": "Criar Transação (Débito)",
+      "url": "{{base_url}}/transactions",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-02-08T19:30:00.000Z",
+      "modified": "2026-02-08T19:30:00.000Z",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Aluguel\",\n  \"amount\": 1500,\n  \"type\": \"debit\"\n}",
+        "form": []
+      },
+      "tests": [],
+      "containerId": "folder_transactions",
+      "colId": "api-rest-transactions"
+    },
+    {
+      "id": "req_list_transactions",
+      "name": "Listar Transações",
+      "url": "{{base_url}}/transactions",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-02-08T19:30:00.000Z",
+      "modified": "2026-02-08T19:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [],
+      "containerId": "folder_transactions",
+      "colId": "api-rest-transactions"
+    },
+    {
+      "id": "req_get_transaction",
+      "name": "Buscar Transação por ID",
+      "url": "{{base_url}}/transactions/{{transaction_id}}",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2026-02-08T19:30:00.000Z",
+      "modified": "2026-02-08T19:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [],
+      "containerId": "folder_transactions",
+      "colId": "api-rest-transactions"
+    },
+    {
+      "id": "req_summary",
+      "name": "Resumo Financeiro",
+      "url": "{{base_url}}/transactions/summary",
+      "method": "GET",
+      "sortNum": 50000,
+      "created": "2026-02-08T19:30:00.000Z",
+      "modified": "2026-02-08T19:30:00.000Z",
+      "headers": [],
+      "params": [],
+      "tests": [],
+      "containerId": "folder_transactions",
+      "colId": "api-rest-transactions"
+    }
+  ],
+  "settings": {
+    "options": {
+      "baseUrl": ""
+    }
+  }
+}

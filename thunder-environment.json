@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Local",
+    "default": false,
+    "sortNum": 10000,
+    "created": "2026-02-08T19:30:00.000Z",
+    "modified": "2026-02-08T19:30:00.000Z",
+    "data": [
+      {
+        "name": "base_url",
+        "value": "http://localhost:3333"
+      },
+      {
+        "name": "transaction_id",
+        "value": "cole-aqui-o-id-da-transacao"
+      }
+    ]
+  },
+  {
+    "name": "Production",
+    "default": true,
+    "sortNum": 20000,
+    "created": "2026-02-08T19:30:00.000Z",
+    "modified": "2026-02-08T19:30:00.000Z",
+    "data": [
+      {
+        "name": "base_url",
+        "value": "https://api-rest-nodejs-production-c4ca.up.railway.app"
+      },
+      {
+        "name": "transaction_id",
+        "value": "cole-aqui-o-id-da-transacao"
+      }
+    ]
+  }
+]

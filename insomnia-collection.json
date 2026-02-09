@@ -1,0 +1,224 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-02-08T19:30:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_1",
+      "parentId": "fld_transactions",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "url": "{{ _.base_url }}/transactions",
+      "name": "Criar Transação (Crédito)",
+      "description": "Cria uma nova transação do tipo crédito. Retorna um cookie de sessão que deve ser usado nas próximas requisições.",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Salário\",\n  \"amount\": 5000,\n  \"type\": \"credit\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1707418200000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2",
+      "parentId": "fld_transactions",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "url": "{{ _.base_url }}/transactions",
+      "name": "Criar Transação (Débito)",
+      "description": "Cria uma nova transação do tipo débito. O valor será armazenado como negativo no banco de dados.",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Aluguel\",\n  \"amount\": 1500,\n  \"type\": \"debit\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1707418199000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3",
+      "parentId": "fld_transactions",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "url": "{{ _.base_url }}/transactions",
+      "name": "Listar Transações",
+      "description": "Lista todas as transações do usuário. Requer o cookie de sessão.",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1707418198000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_4",
+      "parentId": "fld_transactions",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "url": "{{ _.base_url }}/transactions/{{ _.transaction_id }}",
+      "name": "Buscar Transação por ID",
+      "description": "Busca uma transação específica pelo ID. Substitua {{ _.transaction_id }} pelo ID real da transação.",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1707418197000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5",
+      "parentId": "fld_transactions",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "url": "{{ _.base_url }}/transactions/summary",
+      "name": "Resumo Financeiro",
+      "description": "Retorna o resumo financeiro com o saldo total (soma de créditos - débitos).",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1707418196000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_transactions",
+      "parentId": "wrk_1",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "name": "Transactions",
+      "description": "Endpoints para gerenciamento de transações financeiras",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1707418200000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_1",
+      "parentId": null,
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "name": "API REST - Transactions",
+      "description": "API para gerenciamento de transações financeiras desenvolvida com Node.js, TypeScript e Fastify",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_1",
+      "parentId": "wrk_1",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3333",
+        "transaction_id": "cole-aqui-o-id-da-transacao"
+      },
+      "dataPropertyOrder": {
+        "&": ["base_url", "transaction_id"]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1707418200000,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_2",
+      "parentId": "env_1",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "name": "Local",
+      "data": {
+        "base_url": "http://localhost:3333",
+        "transaction_id": "cole-aqui-o-id-da-transacao"
+      },
+      "dataPropertyOrder": {
+        "&": ["base_url", "transaction_id"]
+      },
+      "color": "#7d69cb",
+      "isPrivate": false,
+      "metaSortKey": 1707418200000,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_3",
+      "parentId": "env_1",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "name": "Production",
+      "data": {
+        "base_url": "https://api-rest-nodejs-production-c4ca.up.railway.app",
+        "transaction_id": "cole-aqui-o-id-da-transacao"
+      },
+      "dataPropertyOrder": {
+        "&": ["base_url", "transaction_id"]
+      },
+      "color": "#2ecc71",
+      "isPrivate": false,
+      "metaSortKey": 1707418201000,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_1",
+      "parentId": "wrk_1",
+      "modified": 1707418200000,
+      "created": 1707418200000,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    }
+  ]
+}

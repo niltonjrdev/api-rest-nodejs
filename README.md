@@ -60,6 +60,150 @@ The following tools were used in building the project:
 
 ---
 
+## 🧪 Testing the API
+
+The API can be tested in three ways: importing ready-made collections, using curl, or manually with any HTTP client.
+
+### 📦 Import Collection (Recommended)
+
+#### Insomnia
+
+1. Download [Insomnia](https://insomnia.rest/download)
+2. Download the collection file:
+   - [📥 Download insomnia-collection.json](./insomnia-collection.json) (right-click → Save as)   
+3. Import in Insomnia:
+   - `Application or Home Screen` → `Import/Export` → `Import Data`
+   - Select `From File`
+   - Choose the downloaded file
+   - Click `Scan` then `Import`
+4. Select the `Production` environment
+5. Test the endpoints!
+
+#### Thunder Client (VS Code)
+
+1. Install the [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) extension
+2. Download the collection file:
+   - [📥 Download thunder-collection.json](./thunder-collection.json) (right-click → Save as)   
+3. Import the collection:
+   - Click the Thunder Client icon (⚡)
+   - `Collections` → `...` → `Import`
+   - Select `thunder-collection.json`
+4. Download the environments file:
+   - [📥 Download thunder-environment.json](./thunder-environment.json) (right-click → Save as)
+5. Import the environments:
+   - `Env` → `...` → `Import`
+   - Select `thunder-environment.json`
+6. Choose the `Production` environment
+
+---
+
+### 🔄 Recommended Test Flow
+
+1. **Create credit transaction**
+   - Request: `POST Criar Transação (Crédito)`
+   - The `sessionId` cookie is automatically saved
+
+2. **Create debit transaction**
+   - Request: `POST Criar Transação (Débito)`
+   - Uses the same `sessionId` from the session
+
+3. **List transactions**
+   - Request: `GET Listar Transações`
+   - Returns all session transactions
+   - Copy an `id` for the next test
+
+4. **Get specific transaction**
+   - Paste the `id` in the `transaction_id` environment variable
+   - Request: `GET Buscar Transação por ID`
+
+5. **View financial summary**
+   - Request: `GET Resumo Financeiro`
+   - Returns balance (credits - debits)
+
+---
+
+### 💻 Test with cURL
+
+#### Create transaction:
+```bash
+curl -X POST https://api-rest-nodejs-production-c4ca.up.railway.app/transactions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Freelance",
+    "amount": 5000,
+    "type": "credit"
+  }' \
+  -c cookies.txt
+```
+
+#### List transactions:
+```bash
+curl -X GET https://api-rest-nodejs-production-c4ca.up.railway.app/transactions \
+  -b cookies.txt
+```
+
+#### Get specific transaction:
+```bash
+curl -X GET https://api-rest-nodejs-production-c4ca.up.railway.app/transactions/{ID} \
+  -b cookies.txt
+```
+
+#### View summary:
+```bash
+curl -X GET https://api-rest-nodejs-production-c4ca.up.railway.app/transactions/summary \
+  -b cookies.txt
+```
+
+> **Note:** `-c cookies.txt` saves cookies and `-b cookies.txt` sends them in requests.
+
+---
+
+### 📋 Available Endpoints
+
+| Method | Endpoint | Description | Requires Cookie |
+|--------|----------|-----------|---------------|
+| POST | `/transactions` | Create transaction | No |
+| GET | `/transactions` | List transactions | Yes |
+| GET | `/transactions/:id` | Get transaction | Yes |
+| GET | `/transactions/summary` | Financial summary | Yes |
+
+**POST Body:**
+```json
+{
+  "title": "Transaction description",
+  "amount": 1000,
+  "type": "credit"  // or "debit"
+}
+```
+
+---
+
+### ⚠️ Important Notes
+
+- **Cold Start:** First request may take ~30 seconds (Railway free tier)
+- **Sessions:** Each session has its own `sessionId` via cookie
+- **Isolation:** You only see transactions from your session
+- **Types:** `credit` adds to balance, `debit` subtracts
+- **Values:** Debits are stored as negative in database
+
+---
+
+### 🐛 Common Issues
+
+**401 Unauthorized Error:**
+- You didn't send the cookie on GET routes
+- Solution: Create a transaction first (POST) to receive the cookie
+
+**404 Not Found Error:**
+- The ID doesn't exist or doesn't belong to your session
+- Solution: Check the ID by listing transactions
+
+**First request takes long:**
+- Normal! It's Railway's cold start
+- Next requests will be fast (~200-500ms)
+
+---
+
 ## 🚀 How to run
 
 ### Prerequisites
