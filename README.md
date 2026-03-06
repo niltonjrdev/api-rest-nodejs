@@ -25,7 +25,7 @@
 
 ## 💻 About
 
-RESTful API for financial transaction management developed during Rocketseat's Node.js course. The application allows users to manage their finances by recording credit and debit transactions, with individual sessions per user.
+RESTful API for financial transaction management, focusing on core backend concepts. The application allows users to manage their finances by recording credit and debit transactions, with individual sessions per user.
 
 ---
 
@@ -390,19 +390,6 @@ This project is under the MIT license.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nilton-junior-5915a2238/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/niltonjr-dev)
-
----
-
-## 🙏 Acknowledgments
-
-- [Rocketseat](https://www.rocketseat.com.br/) for the challenge
-- Node.js community
-
----
-
-<p align="center">
-  Project developed during Rocketseat's Node.js module from Rocketseat
-</p>
 
 ---
 

@@ -25,7 +25,7 @@
 
 ## 💻 Sobre
 
-API RESTful para controle de transações financeiras desenvolvida durante o curso de Node.js da Rocketseat. A aplicação permite que usuários gerenciem suas finanças através do registro de transações de crédito e débito, com sessões individuais por usuário.
+API RESTful para gerenciamento de transações financeiras, com foco em conceitos fundamentais de backend. A aplicação permite que usuários gerenciem suas finanças registrando transações de crédito e débito, com sessões individuais por usuário.
 
 ---
 
@@ -390,19 +390,6 @@ Este projeto está sob a licença MIT.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nilton-junior-5915a2238/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/niltonjr-dev)
-
----
-
-## 🙏 Agradecimentos
-
-- [Rocketseat](https://www.rocketseat.com.br/) pelo desafio
-- Comunidade Node.js
-
----
-
-<p align="center">
-  Projeto desenvolvido durante o módulo Node.js da Rocketseat
-</p>
 
 ---
 
